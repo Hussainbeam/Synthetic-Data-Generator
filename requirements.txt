@@ -18,12 +18,11 @@ chromadb==1.0.8
 click==8.1.8
 coloredlogs==15.0.1
 dataclasses-json==0.6.7
-deepeval==2.8.3
+deepeval==2.8.4
 Deprecated==1.2.18
 distro==1.9.0
 durationpy==0.9
 execnet==2.1.1
-fastapi==0.115.9
 filelock==3.18.0
 flatbuffers==25.2.10
 frozenlist==1.6.0
