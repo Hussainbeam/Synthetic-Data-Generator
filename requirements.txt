@@ -18,7 +18,7 @@ chromadb==1.0.8
 click==8.1.8
 coloredlogs==15.0.1
 dataclasses-json==0.6.7
-deepeval==2.8.4
+deepeval==2.8.3
 Deprecated==1.2.18
 distro==1.9.0
 durationpy==0.9
@@ -51,7 +51,6 @@ jsonpatch==1.33
 jsonpointer==3.0.0
 jsonschema==4.23.0
 jsonschema-specifications==2025.4.1
-kubernetes==32.0.1
 langchain==0.3.25
 langchain-community==0.3.23
 langchain-core==0.3.58
