@@ -1,23 +1,18 @@
-import streamlit as st
-import tempfile
-import os
-# Set OpenAI API Key - this will be used by deepeval
 from dotenv import load_dotenv
-
-# Load environment variables from .env
 load_dotenv()
 
-# Access the API key from environment
-openai_api_key = os.getenv("OPENAI_API_KEY")
+import os
+openai=os.getenv("OPENAI_API_KEY")
+import streamlit as st
+import tempfile
 
 import json
 from deepeval.synthesizer import Synthesizer
 from deepeval.synthesizer.config import StylingConfig
+from deepeval.models.llms.openai_model import GPTModel
 
-if not openai_api_key:
-    st.error("❌ OPENAI_API_KEY not found in environment. Please set it in a .env file or your terminal.")
-else:
-    os.environ["OPENAI_API_KEY"] = openai_api_key
+# Initialize GPT model with API key
+gpt_model = GPTModel( _openai_api_key=openai)
 
 st.set_page_config(page_title="DeepEval Synthetic Data Generator", layout="wide")
 
@@ -72,7 +67,9 @@ if generation_method == "Generate from styling configuration":
                 )
                 
                 # Initialize the Synthesizer with the styling configuration
-                synthesizer = Synthesizer(styling_config=styling_config)
+                synthesizer = Synthesizer(styling_config=styling_config,
+                                          model=gpt_model
+                                        )
                 
                 # Generate synthetic goldens from scratch
                 synthesizer.generate_goldens_from_scratch(num_goldens=num_goldens)
